@@ -230,6 +230,11 @@ header ul li:hover {
   position: absolute;
   top: 0;
   left: 0px;
+  animation-play-state: paused !important;
+}
+
+#aboutme.scon .profile .circle div {
+  animation-play-state: running !important;
 }
 
 #aboutme .profile .circle div img {

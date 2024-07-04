@@ -25,10 +25,10 @@ $(document).ready(function () {
   $(window).scroll(function () {
     let sc = $(document).scrollTop();
 
-    let homeT = $("#home").offset().top - 150;
-    let ameT = $("#aboutme").offset().top - 150;
-    let portT = $("#portfolio").offset().top - 150;
-    let designT = $("#design").offset().top - 150;
+    let homeT = $("#home").offset().top - 250;
+    let ameT = $("#aboutme").offset().top - 250;
+    let portT = $("#portfolio").offset().top - 250;
+    let designT = $("#design").offset().top - 250;
 
     if (homeT <= sc && sc < ameT) {
       $("header ul li").removeClass("on");
@@ -42,6 +42,8 @@ $(document).ready(function () {
 
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(1).addClass("on");
+
+      $("#aboutme").addClass("scon");
     } else if (portT <= sc && sc < designT) {
       $("header ul li").removeClass("on");
       $("header ul li").eq(2).addClass("on");
