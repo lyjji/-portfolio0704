@@ -43,7 +43,7 @@ $(document).ready(function () {
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(0).addClass("on");
 
-      $("#aboutme").removeClass("scon");
+      $("section").removeClass("scon");
     } else if (ameT <= sc && sc < portT) {
       $("header ul li").removeClass("on");
       $("header ul li").eq(1).addClass("on");
@@ -51,6 +51,7 @@ $(document).ready(function () {
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(1).addClass("on");
 
+      $("section").removeClass("scon");
       $("#aboutme").addClass("scon");
     } else if (portT <= sc && sc < designT) {
       $("header ul li").removeClass("on");
@@ -59,7 +60,7 @@ $(document).ready(function () {
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(2).addClass("on");
 
-      $("#aboutme").removeClass("scon");
+      $("section").removeClass("scon");
     } else if (designT <= sc) {
       $("header ul li").removeClass("on");
       $("header ul li").eq(3).addClass("on");
@@ -67,7 +68,8 @@ $(document).ready(function () {
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(3).addClass("on");
 
-      $("#aboutme").removeClass("scon");
+      $("section").removeClass("scon");
+      $("#design").addClass("scon");
     }
   });
 

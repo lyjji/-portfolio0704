@@ -549,11 +549,19 @@ header ul li:hover {
   transform: translate(-50%, -50%);
 }
 
+#design.scon ul li {
+  transform: translateY(0px);
+  opacity: 1;
+}
+
 #design ul li {
   margin: 1% 0;
   width: 30%;
   height: 350px;
   background-color: #fff;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: opacity 1s, transform 1s;
 }
 
 #design ul li img {
