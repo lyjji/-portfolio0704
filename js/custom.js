@@ -25,6 +25,12 @@ $(document).ready(function () {
   $(window).scroll(function () {
     let sc = $(document).scrollTop();
 
+    if (0 < sc) {
+      $("header").addClass("scon");
+    } else {
+      $("header").removeClass("scon");
+    }
+
     let homeT = $("#home").offset().top - 250;
     let ameT = $("#aboutme").offset().top - 250;
     let portT = $("#portfolio").offset().top - 250;
@@ -36,6 +42,8 @@ $(document).ready(function () {
 
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(0).addClass("on");
+
+      $("#aboutme").removeClass("scon");
     } else if (ameT <= sc && sc < portT) {
       $("header ul li").removeClass("on");
       $("header ul li").eq(1).addClass("on");
@@ -50,21 +58,34 @@ $(document).ready(function () {
 
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(2).addClass("on");
+
+      $("#aboutme").removeClass("scon");
     } else if (designT <= sc) {
       $("header ul li").removeClass("on");
       $("header ul li").eq(3).addClass("on");
 
       $("#sNav a").removeClass("on");
       $("#sNav a").eq(3).addClass("on");
+
+      $("#aboutme").removeClass("scon");
     }
   });
 
+  //   aboutme circle hover
+  //   $(".circle").mouseover(() => {
+  //     $(".circle").css({ transform: "rotateY(180deg)" });
+  //   });
+
+  //   $(".circle").mouseleave(() => {
+  //     $(".circle").css({ transform: "rotateY(0deg)" });
+  //   });
+
   //   modal 연결
-  $(".swiper-slide .opmodal").click(function () {
+  $(".swiper-slide .opmodal").click(() => {
     $("#modal").addClass("open");
   });
 
-  $(".mbox button").click(function () {
+  $(".mbox button").click(() => {
     $("#modal").removeClass("open");
   });
 });
