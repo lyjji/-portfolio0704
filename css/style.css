@@ -1,0 +1,502 @@
+@charset "utf-8";
+
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font-family: "Jua";
+  cursor: pointer;
+}
+
+body {
+  font-family: "Jua";
+  /* font-family: 'LotteriaChab'; */
+  background-color: #f2f2dc;
+  color: #222;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+  --point-color-green: #def53083;
+  --text-color-green: #58593c;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+}
+
+/* header */
+header {
+  padding: 5px 2%;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+header.scon {
+  border-bottom: none;
+  background-color: #ffffff81;
+  box-shadow: 0 0 5px #ccc;
+}
+
+header img {
+  width: 200px;
+}
+
+header ul {
+  width: calc(100% - 200px);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2%;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+header ul li.on {
+  color: olive;
+  text-shadow: 2px 2px 2px rgba(128, 128, 0, 0.2);
+}
+
+header ul li:hover {
+  color: rgba(106, 142, 35, 0.5);
+  text-shadow: 0px 0px 1px olivedrab;
+}
+
+/* section nav */
+#sNav {
+  margin-right: 2%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+
+#sNav a {
+  display: block;
+  width: 10px;
+  height: 40px;
+  background-color: #fff;
+}
+
+#sNav a.on {
+  background-color: var(--text-color-green);
+}
+
+/* home */
+#home {
+  position: relative;
+}
+
+#home h1 {
+  padding: 5%;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 15px #eef279;
+  font-family: "LotteriaChab";
+  font-size: 100px;
+  font-weight: normal;
+  text-align: center;
+  color: #fff;
+  text-shadow: 5px 5px 5px #f5c101;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#home i {
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 0 0 2px #000;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scdown 0.5s linear infinite alternate;
+}
+
+@keyframes scdown {
+  0% {
+    bottom: 5%;
+  }
+  100% {
+    bottom: 4%;
+  }
+}
+
+/* aboutme */
+#aboutme {
+  position: relative;
+}
+
+#aboutme .rolling {
+  width: 30%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#aboutme .rolling li {
+  color: #58593c;
+  font-size: 20px;
+  writing-mode: vertical-rl;
+  text-transform: uppercase;
+  display: flex;
+}
+
+#aboutme .rolling li p {
+  height: 255px;
+}
+
+#aboutme .wrap {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+#aboutme .profile {
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+#aboutme .profile .circle {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  perspective: 1000px;
+  perspective-origin: center;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+#aboutme .profile .circle:hover {
+  transform: rotateY(180deg);
+}
+
+#aboutme .profile .circle div {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  backface-visibility: hidden;
+  border-radius: 50%;
+  box-shadow: 0px 0px 5px var(--text-color-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #222;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0px;
+}
+
+#aboutme .profile .circle div img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#aboutme .profile .circle .cfront {
+  animation: turn1 3s;
+}
+
+@keyframes turn1 {
+  0% {
+    transform: translateY(-100%) rotateY(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(0) rotateY(0deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(720deg);
+  }
+}
+
+#aboutme .profile .circle .cback {
+  background: linear-gradient(to bottom right, #f2efbb, #fff);
+  font-size: 25px;
+  transform: rotateY(180deg);
+  animation: turn2 3s;
+}
+
+@keyframes turn2 {
+  0% {
+    transform: translateY(-100%) rotateY(180deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  25% {
+    transform: translateY(0) rotateY(180deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(900deg);
+  }
+}
+
+#aboutme .profile li:last-child {
+  width: calc(90% - 400px);
+  font-size: 23px;
+  line-height: 33px;
+}
+
+#aboutme .profile li:last-child p {
+  word-break: break-all;
+}
+
+#aboutme .profile li:last-child span {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#aboutme h3 {
+  margin: 5% auto 0;
+  width: 70%;
+  font-size: 35px;
+}
+
+#aboutme .skills {
+  margin: 1% auto;
+  padding: 15px;
+  box-sizing: border-box;
+  width: 70%;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 2px #ccc;
+  display: flex;
+  align-items: center;
+  gap: 2%;
+  font-size: 50px;
+}
+
+#aboutme .fa-html5 {
+  color: #f24822;
+}
+
+#aboutme .fa-css3-alt {
+  color: #22a2f2;
+}
+
+#aboutme .jquery {
+  width: 45px !important;
+  padding: 1px;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+#aboutme .fa-square-js {
+  color: gold;
+}
+
+#aboutme .fa-react {
+  color: deepskyblue;
+}
+
+#aboutme .skills img {
+  width: 50px;
+}
+
+/* portfolio */
+#portfolio {
+  padding: 0 10%;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#portfolio .swiper {
+  margin: 0;
+  width: 100%;
+  height: 60%;
+}
+
+#portfolio .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#portfolio .swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+#portfolio .txtbox {
+  padding: 2% 0;
+  width: 100%;
+  background-color: rgba(106, 142, 35, 0.5);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#portfolio .txtbox h2 {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 0 2px black;
+}
+
+#portfolio .txtbox button {
+  width: 100px;
+  height: 35px;
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+/* #portfolio .txtbox {
+  width: 40%;
+}
+
+#portfolio .txtbox h2 {
+  font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-color-green);
+  text-shadow: 0 0 2px black;
+} */
+
+/* design */
+#design ul {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#design ul li {
+  margin: 1% 0;
+  width: 30%;
+  height: 350px;
+  background-color: #fff;
+}
+
+#design ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* modal */
+#modal {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 11;
+}
+
+#modal.open {
+  display: block;
+}
+
+#modal .mbox {
+  width: 40%;
+  height: 80vh;
+  background-color: #fff;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#modal .mbox .mimg {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#modal .mbox .mimg img {
+  width: 100%;
+  object-fit: cover;
+}
+
+#modal .mbox button {
+  margin: 0 1px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border: none;
+  font-size: 30px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: black;
+  color: #fff;
+}
+
+#modal .mbox button:hover {
+  background-color: orangered;
+}
+
+/* footer */
+footer {
+  padding: 15px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  color: #222;
+  text-align: right;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
